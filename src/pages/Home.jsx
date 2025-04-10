@@ -12,7 +12,6 @@ function Home() {
     async function fetchProducts() {
       try {
         const res = await axios.get("https://fakestoreapi.com/products");
-        console.log(res);
         setProducts(res.data);
       } catch (error) {
         toast.error(error.response.data.message);
