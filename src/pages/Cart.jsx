@@ -8,7 +8,7 @@ function Cart() {
   if (!cart.length) return <EmptyCart />;
 
   const total = cart.reduce(
-    (acc, item) => item.quantity * item.product.price,
+    (acc, item) => item.quantity * item.product.price + acc,
     0
   );
 
@@ -16,12 +16,12 @@ function Cart() {
     <div className="space-y-6 max-w-3xl mx-auto">
       <ul>
         {cart.map((item) => (
-          <CartItem key={item._id} item={item} />
+          <CartItem key={item.id} item={item} />
         ))}
       </ul>
 
       <div className="flex justify-between p-4">
-        <span>total:{total}</span>
+        <span>Total: {total.toFixed(2)}</span>
         <button onClick={clearCart}>Check out</button>
       </div>
     </div>

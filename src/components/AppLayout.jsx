@@ -3,9 +3,9 @@ import Navbar from "./Navbar";
 
 function AppLayout() {
   return (
-    <div className="app-layout">
+    <div className="flex flex-col overflow-hidden min-h-screen">
       <Navbar />
-      <main className="main-layout">
+      <main className="flex-1 pt-10">
         <Outlet />
       </main>
     </div>
