@@ -8,6 +8,7 @@ import ProductDetails from "./pages/ProductDetails";
 import ScrollToTop from "./components/ScrollToTop";
 import { Toaster } from "react-hot-toast";
 import { useAuth } from "./contexts/AuthContext";
+import Category from "./pages/Category";
 
 function App() {
   const { auth } = useAuth();
@@ -22,6 +23,7 @@ function App() {
             path="/"
             element={auth ? <Home /> : <Navigate to="/login" />}
           />
+          <Route path="/category/:category" element={<Category />} />
           <Route path="/products/:productId" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<PageNotFound />} />
