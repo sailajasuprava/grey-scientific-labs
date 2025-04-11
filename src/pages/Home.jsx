@@ -1,36 +1,9 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import axios from "axios";
 import ProductCard from "../components/ProductCard";
 import Spinner from "../components/Spinner";
-import { useNavigate } from "react-router-dom";
+import useHome from "../hooks/useHome";
 
 function Home() {
-  const [products, setProducts] = useState([]);
-  const navigate = useNavigate();
-
-  const handleCategoryChange = (e) => {
-    const selected = e.target.value;
-    if (selected === "") {
-      navigate("/");
-    } else {
-      navigate(`/category/${selected}`);
-    }
-  };
-
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const res = await axios.get("https://fakestoreapi.com/products");
-        console.log(res);
-
-        setProducts(res.data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchProducts();
-  }, []);
+  const { products, handleCategoryChange } = useHome();
 
   if (!products.length) return <Spinner />;
 
