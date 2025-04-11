@@ -36,7 +36,7 @@ function ProductDetails() {
 
         <button
           onClick={() => handleAddToCart(product)}
-          className="mt-4 bg-yellow-400 hover:bg-yellow-500 py-2 px-6 rounded-xl text-lg font-medium transition duration-300"
+          className="mt-4 btn-pink"
         >
           Add to Cart
         </button>

@@ -8,7 +8,7 @@ function Navbar() {
   const { isLoading, handleLogout } = useLogout();
 
   return (
-    <div className="flex justify-end items-center gap-10 p-4 bg-blue-950 text-white">
+    <div className="flex justify-end items-center gap-10 p-4 bg-black text-white">
       <Link to="/">
         <span>Home</span>
       </Link>
@@ -17,18 +17,14 @@ function Navbar() {
         <span className="relative">
           <IoCartOutline size={30} />
           {cart.length !== 0 && (
-            <span className="absolute -top-2 -right-2 text-black bg-yellow-500 rounded-full px-2 py-0.5  text-xs">
+            <span className="absolute -top-2 -right-2 btn-sm">
               {cart.length}
             </span>
           )}
         </span>
       </Link>
 
-      <button
-        onClick={handleLogout}
-        disabled={isLoading}
-        className="bg-yellow-400 hover:bg-yellow-500 text-black py-2 px-6 rounded-xl text-lg font-medium transition duration-300"
-      >
+      <button onClick={handleLogout} disabled={isLoading} className="btn-pink">
         Log out
       </button>
     </div>

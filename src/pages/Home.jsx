@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { toast } from "react-hot-toast";
 import axios from "axios";
 import ProductCard from "../components/ProductCard";
 import Spinner from "../components/Spinner";
@@ -8,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [products, setProducts] = useState([]);
-  // const [category, setCategory] = useState("");
   const navigate = useNavigate();
 
   const handleCategoryChange = (e) => {
@@ -44,25 +42,22 @@ function Home() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto space-y-10">
+    <div className="max-w-5xl mx-auto space-y-10 px-4">
       <div>
-        <label htmlFor="category">Select by category :</label>
-        <select
-          name="category"
-          id="category"
-          // value={category}
-          onChange={handleCategoryChange}
-        >
+        <label htmlFor="category" className="label text-lg">
+          category :
+        </label>
+        <select name="category" id="category" onChange={handleCategoryChange}>
           <option value="">All</option>
           {uniqueCategories.map((item) => (
-            <option key={item} value={item}>
+            <option key={item} value={item} className="input">
               {item}
             </option>
           ))}
         </select>
       </div>
 
-      <ul className="grid grid-cols-3 gap-10">
+      <ul className="grid xs:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-10">
         {products.map((prod) => (
           <ProductCard key={prod.id} prod={prod} />
         ))}
